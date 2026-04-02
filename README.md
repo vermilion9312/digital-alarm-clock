@@ -11,7 +11,7 @@
 
 ```mermaid
 classDiagram
-direction LR
+direction TB
 
 class Input
 class Output 
