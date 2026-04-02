@@ -27,7 +27,7 @@ DigitalAlarmClock *-- "6" Output : led
 
 ```mermaid
 classDiagram
-direction LR
+direction TB
 
 class Input 
 class Output 
@@ -42,7 +42,7 @@ DigitalAlarmClock o-- "3" Output
 
 ```mermaid
 classDiagram
-direction LR
+direction TB
 
 class Input
 class Output 
@@ -52,8 +52,8 @@ class DigitalAlarmClock
 
 DigitalAlarmClock *-- Input
 DigitalAlarmClock *-- "2" Output
-DigitalAlarmClock *-- Segment
 DigitalAlarmClock *-- Timer
+DigitalAlarmClock *-- Segment
 
 ```
 
