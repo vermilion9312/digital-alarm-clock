@@ -84,41 +84,18 @@ classDiagram
     direction LR
 
     class DigitalAlarmClock {
-        +DigitalAlarmClock_init()
-        +DigitalAlarmClock_operate()
+        <<Main Logic>>
     }
 
     class Input {
-        -port: GPIO_TypeDef*
-        -pin: uint16_t
-        -type: InputType
-        -lastState: bool
-        -state: bool
-        +Input_isOn() bool
-        +Input_isRising() bool
-        +Input_isFalling() bool
-        +Input_update()
+        <<Driver>>
     }
 
     class Output {
-        -port: GPIO_TypeDef*
-        -pin: uint16_t
-        -type: OutputType
-        +Output_turnOn()
-        +Output_turnOff()
-        +Output_toggle()
+        <<Driver>>
     }
 
-    %% 합성 관계 및 역할명(Role Name) 표기
-    DigitalAlarmClock "1" *-- "1" Input : button1
-    DigitalAlarmClock "1" *-- "1" Input : button2
-    DigitalAlarmClock "1" *-- "1" Input : button3
-
-    DigitalAlarmClock "1" *-- "1" Output : leftRed
-    DigitalAlarmClock "1" *-- "1" Output : leftGreen
-    DigitalAlarmClock "1" *-- "1" Output : leftBlue
-
-    DigitalAlarmClock "1" *-- "1" Output : rightRed
-    DigitalAlarmClock "1" *-- "1" Output : rightGreen
-    DigitalAlarmClock "1" *-- "1" Output : rightBlue
+    %% 관계 요약: 시계는 3개의 입력과 6개의 출력을 가짐
+    DigitalAlarmClock "1" *-- "3" Input : buttons
+    DigitalAlarmClock "1" *-- "6" Output : leds
 ```
