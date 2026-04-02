@@ -78,3 +78,47 @@ Segment o-- Data
 
 
 ```
+
+```mermaid
+classDiagram
+    direction BT
+
+    class DigitalAlarmClock {
+        +DigitalAlarmClock_init()
+        +DigitalAlarmClock_operate()
+    }
+
+    class Input {
+        -port: GPIO_TypeDef*
+        -pin: uint16_t
+        -type: InputType
+        -lastState: bool
+        -state: bool
+        +Input_isOn() bool
+        +Input_isRising() bool
+        +Input_isFalling() bool
+        +Input_update()
+    }
+
+    class Output {
+        -port: GPIO_TypeDef*
+        -pin: uint16_t
+        -type: OutputType
+        +Output_turnOn()
+        +Output_turnOff()
+        +Output_toggle()
+    }
+
+    %% 합성 관계 및 역할명(Role Name) 표기
+    DigitalAlarmClock "1" *-- "1" Input : button1
+    DigitalAlarmClock "1" *-- "1" Input : button2
+    DigitalAlarmClock "1" *-- "1" Input : button3
+
+    DigitalAlarmClock "1" *-- "1" Output : leftRed
+    DigitalAlarmClock "1" *-- "1" Output : leftGreen
+    DigitalAlarmClock "1" *-- "1" Output : leftBlue
+
+    DigitalAlarmClock "1" *-- "1" Output : rightRed
+    DigitalAlarmClock "1" *-- "1" Output : rightGreen
+    DigitalAlarmClock "1" *-- "1" Output : rightBlue
+```
