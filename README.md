@@ -37,6 +37,8 @@ DigitalAlarmClock *--> "6" Output
 
 ## [1-2. 버튼 입력 및 UART 입력으로 LED 토글](https://youtu.be/Bg9hrV3UmNI?si=QyxuOjNht088D7Jv)
 
+<img width="1329" height="747" alt="image" src="https://github.com/user-attachments/assets/b25ca1fc-1603-4f76-9de9-f911c2bc408d" />
+
 ```mermaid
 classDiagram
 direction LR
