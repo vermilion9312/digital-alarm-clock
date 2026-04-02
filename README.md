@@ -33,8 +33,8 @@ class DigitalAlarmClock {
     - Output rightBlue
 }
 
-DigitalAlarmClock *--> "3" Input
-DigitalAlarmClock *--> "6" Output
+DigitalAlarmClock *-- "3" Input
+DigitalAlarmClock *-- "6" Output
 ```
 
 ## [1-2. 버튼 입력 및 UART 입력으로 LED 토글](https://youtu.be/Bg9hrV3UmNI?si=QyxuOjNht088D7Jv)
@@ -69,9 +69,9 @@ class DigitalAlarmClock {
     - Output* blue
 }
 
-DigitalAlarmClock *--> "3" Input
-DigitalAlarmClock *--> "6" Output
-DigitalAlarmClock o--> "3" Output
+DigitalAlarmClock *-- "3" Input
+DigitalAlarmClock *-- "6" Output
+DigitalAlarmClock o-- "3" Output
 ```
 
 ## [1-3. 버튼 누른 시간 카운트](https://youtu.be/ARtBX-rpjCA?si=GdJaIIyo2OaC4g94)
@@ -95,14 +95,12 @@ class Data {
 class DigitalAlarmClock {
 }
 
-DigitalAlarmClock *--> Input
-DigitalAlarmClock *--> "2" Output
-DigitalAlarmClock o--> Segment
-DigitalAlarmClock o--> Data
-Segment o--> Data
+DigitalAlarmClock *-- Input
+DigitalAlarmClock *-- "2" Output
+DigitalAlarmClock o-- Segment
+DigitalAlarmClock o-- Data
+Segment o-- Data
 
-DigitalAlarmClock "1" *-- "1" Output : leftRed
-    DigitalAlarmClock "1" *-- "1" Output : rightRed
 
 
 ```
