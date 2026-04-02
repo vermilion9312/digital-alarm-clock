@@ -20,17 +20,6 @@ class Output {
 }
 
 class DigitalAlarmClock {
-    - Input button1
-    - Input button2
-    - Input button3
-
-    - Output leftRed
-    - Output leftGreen
-    - Output leftBlue
-
-    - Output rightRed
-    - Output rightGreen
-    - Output rightBlue
 }
 
 DigitalAlarmClock *-- "3" Input
@@ -52,21 +41,6 @@ class Output {
 }
 
 class DigitalAlarmClock {
-    - Input button1
-    - Input button2
-    - Input button3
-
-    - Output leftRed
-    - Output leftGreen
-    - Output leftBlue
-
-    - Output rightRed
-    - Output rightGreen
-    - Output rightBlue
-
-    - Output* red
-    - Output* green
-    - Output* blue
 }
 
 DigitalAlarmClock *-- "3" Input
