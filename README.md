@@ -21,7 +21,7 @@ class DigitalAlarmClock {
     - Input button1
     - Input button2
     - Input button3
-
+    <br/>
     - Output leftRed
     - Output leftGreen
     - Output leftBlue
