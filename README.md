@@ -6,6 +6,8 @@
 
 ## [1-1. 버튼 입력으로 LED 토글 1](https://www.youtube.com/watch?v=kQcF4ELYz64)
 <img width="661" height="464" alt="image" src="https://github.com/user-attachments/assets/0a22fd6d-9fbe-4dc2-ae51-f179d2e2d6d9" />
+<img width="1326" height="747" alt="image" src="https://github.com/user-attachments/assets/d785d6ad-68a8-475d-ad45-052858cd9685" />
+
 
 ```mermaid
 classDiagram
