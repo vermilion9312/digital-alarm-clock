@@ -93,13 +93,6 @@ class Data {
 }
 
 class DigitalAlarmClock {
-    - Input button1
-
-    - Output leftRed
-    - Output rightRed
-
-    - Segment segment
-    - Data data
 }
 
 DigitalAlarmClock *--> Input
@@ -107,5 +100,9 @@ DigitalAlarmClock *--> "2" Output
 DigitalAlarmClock o--> Segment
 DigitalAlarmClock o--> Data
 Segment o--> Data
+
+DigitalAlarmClock "1" *-- "1" Output : leftRed
+    DigitalAlarmClock "1" *-- "1" Output : rightRed
+
 
 ```
