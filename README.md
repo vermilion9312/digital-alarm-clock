@@ -81,7 +81,7 @@ Segment o-- Data
 
 ```mermaid
 classDiagram
-    direction BT
+    direction LR
 
     class DigitalAlarmClock {
         +DigitalAlarmClock_init()
