@@ -13,8 +13,19 @@ class Output {
 }
 
 class DigitalAlarmClock {
+    - Input button1
+    - Input button2
+    - Input button3
+
+    - Output leftRed
+    - Output leftGreen
+    - Output leftBlue
+
+    - Output rightRed
+    - Output rightGreen
+    - Output rightBlue
 }
 
-DigitalAlarmClock *--> Input
-DigitalAlarmClock *--> Output
+DigitalAlarmClock *--> "4" Input
+DigitalAlarmClock *--> "6" Output
 ```
