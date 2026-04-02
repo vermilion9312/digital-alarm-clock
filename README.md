@@ -73,3 +73,37 @@ DigitalAlarmClock *--> "3" Input
 DigitalAlarmClock *--> "6" Output
 DigitalAlarmClock o--> "3" Output
 ```
+## [1-3. 버튼 누른 시간 카운트](https://youtu.be/ARtBX-rpjCA?si=GdJaIIyo2OaC4g94)
+```mermaid
+classDiagram
+direction LR
+
+class Input {
+}
+
+class Output {
+}
+
+class Segment {
+}
+
+clas Data {
+}
+
+class DigitalAlarmClock {
+    - Input button1
+
+    - Output leftRed
+    - Output rightRed
+
+    - Segment segment
+    - Data data
+}
+
+DigitalAlarmClock *--> Input
+DigitalAlarmClock *--> "2" Output
+DigitalAlarmClock o--> Segment
+DigitalAlarmClock o--> Data
+Segment o--> Data
+
+```
