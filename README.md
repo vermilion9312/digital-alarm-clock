@@ -22,8 +22,8 @@ class Output {
 class DigitalAlarmClock {
 }
 
-DigitalAlarmClock *-- "3" Input
-DigitalAlarmClock *-- "6" Output
+DigitalAlarmClock *-- "3" Input : button
+DigitalAlarmClock *-- "6" Output : led
 ```
 
 ## [1-2. 버튼 입력 및 UART 입력으로 LED 토글](https://youtu.be/Bg9hrV3UmNI?si=QyxuOjNht088D7Jv)
@@ -79,23 +79,3 @@ Segment o-- Data
 
 ```
 
-```mermaid
-classDiagram
-    direction LR
-
-    class DigitalAlarmClock {
-        <<Main Logic>>
-    }
-
-    class Input {
-        <<Driver>>
-    }
-
-    class Output {
-        <<Driver>>
-    }
-
-    %% 관계 요약: 시계는 3개의 입력과 6개의 출력을 가짐
-    DigitalAlarmClock "1" *-- "3" Input : buttons
-    DigitalAlarmClock "1" *-- "6" Output : leds
-```
