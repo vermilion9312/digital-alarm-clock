@@ -9,6 +9,7 @@
 #include <digital_alarm_clock.h>
 
 static DigitalAlarmClock clock = {
+
 		.button1 = { BUTTON_1_GPIO_Port, BUTTON_1_Pin, INPUT_ACTIVE_HIGH },
 		.button2 = { BUTTON_2_GPIO_Port, BUTTON_2_Pin, INPUT_ACTIVE_HIGH },
 		.button3 = { BUTTON_3_GPIO_Port, BUTTON_3_Pin, INPUT_ACTIVE_HIGH },
@@ -25,6 +26,7 @@ static DigitalAlarmClock clock = {
 		.red   = &clock.leftRed,
 		.green = &clock.leftGreen,
 		.blue  = &clock.leftBlue
+
 };
 
 static void changeOutputDirection(void)
