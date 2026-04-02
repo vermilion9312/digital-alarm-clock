@@ -73,7 +73,9 @@ DigitalAlarmClock *--> "3" Input
 DigitalAlarmClock *--> "6" Output
 DigitalAlarmClock o--> "3" Output
 ```
+
 ## [1-3. 버튼 누른 시간 카운트](https://youtu.be/ARtBX-rpjCA?si=GdJaIIyo2OaC4g94)
+
 ```mermaid
 classDiagram
 direction LR
