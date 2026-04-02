@@ -24,7 +24,13 @@ static DigitalAlarmClock clock = {
 
 void DigitalAlarmClock_init(void)
 {
+	Output_turnOff(&clock.leftRed);
+	Output_turnOff(&clock.leftGreen);
+	Output_turnOff(&clock.leftBlue);
 
+	Output_turnOff(&clock.rightRed);
+	Output_turnOff(&clock.rightGreen);
+	Output_turnOff(&clock.rightBlue);
 }
 
 void DigitalAlarmClock_operate(void)
