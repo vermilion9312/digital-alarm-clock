@@ -89,7 +89,7 @@ class Output {
 class Segment {
 }
 
-clas Data {
+class Data {
 }
 
 class DigitalAlarmClock {
