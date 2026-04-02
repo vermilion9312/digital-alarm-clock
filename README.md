@@ -35,7 +35,7 @@ DigitalAlarmClock *--> "3" Input
 DigitalAlarmClock *--> "6" Output
 ```
 
-## [1-2. 버튼 입력 및 UART 입력으로 LED 토글]([https://www.youtube.com/watch?v=kQcF4ELYz64](https://youtu.be/Bg9hrV3UmNI?si=QyxuOjNht088D7Jv))
+## [1-2. 버튼 입력 및 UART 입력으로 LED 토글](https://www.youtube.com/watch?v=kQcF4ELYz64](https://youtu.be/Bg9hrV3UmNI?si=QyxuOjNht088D7Jv)
 
 ```mermaid
 classDiagram
