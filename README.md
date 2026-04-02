@@ -13,14 +13,9 @@
 classDiagram
 direction LR
 
-class Input {
-}
-
-class Output {
-}
-
-class DigitalAlarmClock {
-}
+class Input
+class Output 
+class DigitalAlarmClock 
 
 DigitalAlarmClock *-- "3" Input : button
 DigitalAlarmClock *-- "6" Output : led
@@ -34,14 +29,9 @@ DigitalAlarmClock *-- "6" Output : led
 classDiagram
 direction LR
 
-class Input {
-}
-
-class Output {
-}
-
-class DigitalAlarmClock {
-}
+class Input 
+class Output 
+class DigitalAlarmClock 
 
 DigitalAlarmClock *-- "3" Input
 DigitalAlarmClock *-- "6" Output
@@ -54,28 +44,16 @@ DigitalAlarmClock o-- "3" Output
 classDiagram
 direction LR
 
-class Input {
-}
-
-class Output {
-}
-
-class Segment {
-}
-
-class Data {
-}
-
-class DigitalAlarmClock {
-}
+class Input
+class Output 
+class Segment 
+class Timer
+class DigitalAlarmClock
 
 DigitalAlarmClock *-- Input
 DigitalAlarmClock *-- "2" Output
-DigitalAlarmClock o-- Segment
-DigitalAlarmClock o-- Data
-Segment o-- Data
-
-
+DigitalAlarmClock *-- Segment
+DigitalAlarmClock *-- Timer
 
 ```
 
