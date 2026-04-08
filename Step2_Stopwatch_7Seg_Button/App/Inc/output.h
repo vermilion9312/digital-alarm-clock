@@ -19,6 +19,7 @@ typedef struct {
 	GPIO_TypeDef* port;
 	uint16_t      pin;
 	OutputType    type;
+	bool          state;
 } Output;
 
 void Output_turnOn(const Output*);

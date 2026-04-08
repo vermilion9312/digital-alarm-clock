@@ -8,7 +8,7 @@
 
 #include <digital_alarm_clock.h>
 
-static DigitalAlarmClock clock = {
+static DigitalAlarmClock this = {
 		.button1 = { BUTTON_1_GPIO_Port, BUTTON_1_Pin, INPUT_ACTIVE_HIGH },
 		.button2 = { BUTTON_2_GPIO_Port, BUTTON_2_Pin, INPUT_ACTIVE_HIGH },
 		.button3 = { BUTTON_3_GPIO_Port, BUTTON_3_Pin, INPUT_ACTIVE_HIGH },
@@ -24,27 +24,27 @@ static DigitalAlarmClock clock = {
 
 void DigitalAlarmClock_init(void)
 {
-	Output_turnOff(&clock.leftRed);
-	Output_turnOff(&clock.leftGreen);
-	Output_turnOff(&clock.leftBlue);
+	Output_turnOff(&this.leftRed);
+	Output_turnOff(&this.leftGreen);
+	Output_turnOff(&this.leftBlue);
 
-	Output_turnOff(&clock.rightRed);
-	Output_turnOff(&clock.rightGreen);
-	Output_turnOff(&clock.rightBlue);
+	Output_turnOff(&this.rightRed);
+	Output_turnOff(&this.rightGreen);
+	Output_turnOff(&this.rightBlue);
 }
 
 void DigitalAlarmClock_operate(void)
 {
-	Input_update(&clock.button1);
-	Input_update(&clock.button2);
-	Input_update(&clock.button3);
+	Input_update(&this.button1);
+	Input_update(&this.button2);
+	Input_update(&this.button3);
 
-	if (Input_isRising(&clock.button1))  Output_toggle(&clock.leftRed);
-	if (Input_isFalling(&clock.button1)) Output_toggle(&clock.rightRed);
+	if (Input_isRising(&this.button1))  Output_toggle(&this.leftRed);
+	if (Input_isFalling(&this.button1)) Output_toggle(&this.rightRed);
 
-	if (Input_isRising(&clock.button2))  Output_toggle(&clock.leftGreen);
-	if (Input_isFalling(&clock.button2)) Output_toggle(&clock.rightGreen);
+	if (Input_isRising(&this.button2))  Output_toggle(&this.leftGreen);
+	if (Input_isFalling(&this.button2)) Output_toggle(&this.rightGreen);
 
-	if (Input_isRising(&clock.button3))  Output_toggle(&clock.leftBlue);
-	if (Input_isFalling(&clock.button3)) Output_toggle(&clock.rightBlue);
+	if (Input_isRising(&this.button3))  Output_toggle(&this.leftBlue);
+	if (Input_isFalling(&this.button3)) Output_toggle(&this.rightBlue);
 }

@@ -8,7 +8,7 @@
 
 #include <digital_alarm_clock.h>
 
-static DigitalAlarmClock clock = {
+static DigitalAlarmClock this = {
 
 		.button1 = { BUTTON_1_GPIO_Port, BUTTON_1_Pin, INPUT_ACTIVE_HIGH },
 		.button2 = { BUTTON_2_GPIO_Port, BUTTON_2_Pin, INPUT_ACTIVE_HIGH },
@@ -23,44 +23,44 @@ static DigitalAlarmClock clock = {
 		.rightGreen = { RIGHT_GREEN_GPIO_Port, RIGHT_GREEN_Pin, OUTPUT_ACTIVE_LOW },
 		.rightBlue  = { RIGHT_BLUE_GPIO_Port,  RIGHT_BLUE_Pin,  OUTPUT_ACTIVE_LOW },
 
-		.red   = &clock.leftRed,
-		.green = &clock.leftGreen,
-		.blue  = &clock.leftBlue
+		.red   = &this.leftRed,
+		.green = &this.leftGreen,
+		.blue  = &this.leftBlue
 
 };
 
 static void changeOutputDirection(void)
 {
-	if (clock.red == &clock.leftRed)
+	if (this.red == &this.leftRed)
 	{
-		clock.red   = &clock.rightRed;
-		clock.green = &clock.rightGreen;
-		clock.blue  = &clock.rightBlue;
+		this.red   = &this.rightRed;
+		this.green = &this.rightGreen;
+		this.blue  = &this.rightBlue;
 	}
 	else
 	{
-		clock.red   = &clock.leftRed;
-		clock.green = &clock.leftGreen;
-		clock.blue  = &clock.leftBlue;
+		this.red   = &this.leftRed;
+		this.green = &this.leftGreen;
+		this.blue  = &this.leftBlue;
 	}
 }
 
 void DigitalAlarmClock_init(void)
 {
-	Output_turnOff(clock.red);
-	Output_turnOff(clock.green);
-	Output_turnOff(clock.blue);
+	Output_turnOff(this.red);
+	Output_turnOff(this.green);
+	Output_turnOff(this.blue);
 }
 
 void DigitalAlarmClock_operate(void)
 {
-	Input_update(&clock.button1);
-	Input_update(&clock.button2);
-	Input_update(&clock.button3);
-	Input_update(&clock.button4);
+	Input_update(&this.button1);
+	Input_update(&this.button2);
+	Input_update(&this.button3);
+	Input_update(&this.button4);
 
-	if (Input_isRising(&clock.button1))  Output_toggle(clock.red);
-	if (Input_isRising(&clock.button2))  Output_toggle(clock.green);
-	if (Input_isRising(&clock.button3))  Output_toggle(clock.blue);
-	if (Input_isRising(&clock.button4))  changeOutputDirection();
+	if (Input_isRising(&this.button1))  Output_toggle(this.red);
+	if (Input_isRising(&this.button2))  Output_toggle(this.green);
+	if (Input_isRising(&this.button3))  Output_toggle(this.blue);
+	if (Input_isRising(&this.button4))  changeOutputDirection();
 }

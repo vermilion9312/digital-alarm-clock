@@ -13,6 +13,13 @@
 #include <segment.h>
 #include <timer.h>
 
+typedef struct {
+	void (* MainLogic_operate)(void);
+	void (* IO_operate)(void);
+	void (* Segment_operate)(void);
+	void (* CLCD_operate)(void);
+} Mode;
+
 typedef enum {
 	STATE_STOPPED,
 	STATE_PAUSED,
@@ -20,6 +27,8 @@ typedef enum {
 } StopwatchState;
 
 typedef struct {
+	Mode*  mode;
+
 	Input  button1;
 	Input  button2;
 	Input  button3;
