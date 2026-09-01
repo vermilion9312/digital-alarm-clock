@@ -1,24 +1,31 @@
 /*
  * output.h
  *
- *  Created on: Jan 17, 2026
+ *  Created on: Aug 29, 2026
  *      Author: LeeJooHo
  */
 
-#ifndef COMMON_INC_OUTPUT_H_
-#define COMMON_INC_OUTPUT_H_
+#ifndef INC_OUTPUT_H_
+#define INC_OUTPUT_H_
 
 #include <common.h>
+
+typedef enum {
+	OUTPUT_ACTIVE_LOW,
+	OUTPUT_ACTIVE_HIGH
+} OutputLevel;
 
 typedef struct {
 	GPIO_TypeDef* port;
 	uint16_t      pin;
-	ActiveLevel   level;
-	bool          state;
+	OutputLevel   level;
+
+	bool state;
 } Output;
 
 void Output_TurnOn(Output*);
 void Output_TurnOff(Output*);
 void Output_Toggle(Output*);
+void Output_Init(Output*, GPIO_TypeDef*, uint16_t, OutputLevel);
 
-#endif /* COMMON_INC_OUTPUT_H_ */
+#endif /* INC_OUTPUT_H_ */

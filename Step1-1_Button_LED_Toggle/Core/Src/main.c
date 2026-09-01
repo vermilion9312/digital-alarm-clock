@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <app_main.h>
+#include <app.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,8 +92,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  AppInit();
-  while (1) AppLoop();
+  App_Init();
+  while (1) App_Loop();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -178,13 +178,13 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : BUTTON_1_Pin */
   GPIO_InitStruct.Pin = BUTTON_1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(BUTTON_1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : BUTTON_2_Pin */
   GPIO_InitStruct.Pin = BUTTON_2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(BUTTON_2_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : RIGHT_BLUE_Pin RIGHT_GREEN_Pin */
@@ -197,7 +197,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : BUTTON_4_Pin BUTTON_3_Pin */
   GPIO_InitStruct.Pin = BUTTON_4_Pin|BUTTON_3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LEFT_RED_Pin LEFT_GREEN_Pin LEFT_BLUE_Pin */

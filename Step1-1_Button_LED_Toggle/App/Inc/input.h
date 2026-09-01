@@ -1,26 +1,32 @@
 /*
  * input.h
  *
- *  Created on: Jan 17, 2026
+ *  Created on: Aug 29, 2026
  *      Author: LeeJooHo
  */
 
-#ifndef COMMON_INC_INPUT_H_
-#define COMMON_INC_INPUT_H_
+#ifndef INC_INPUT_H_
+#define INC_INPUT_H_
 
 #include <common.h>
+
+typedef enum {
+	INPUT_ACTIVE_LOW,
+	INPUT_ACTIVE_HIGH
+} InputLevel;
 
 typedef struct {
 	GPIO_TypeDef* port;
 	uint16_t      pin;
-	ActiveLevel   level;
-	bool          lastState;
-	bool          state;
+	InputLevel    level;
+
+	bool lastState;
+	bool state;
 } Input;
 
-bool Input_IsOn(const Input* );
-bool Input_IsRising(const Input*);
-bool Input_IsFalling(const Input*);
+void Input_Init(Input*, GPIO_TypeDef*, uint16_t, InputLevel);
 void Input_Update(Input*);
+bool Input_IsRisingEdge(Input*);
+bool Input_IsFallingEdge(Input*);
 
-#endif /* COMMON_INC_INPUT_H_ */
+#endif /* INC_INPUT_H_ */
