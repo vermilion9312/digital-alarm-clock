@@ -15,10 +15,10 @@ direction TB
 
 class Input
 class Output 
-class DigitalAlarmClock 
+class App
 
-DigitalAlarmClock *-- "3" Input : button
-DigitalAlarmClock *-- "6" Output : led
+App *-- "3" Input : button
+App *-- "6" Output : led
 ```
 
 ## [1-2. 버튼 입력 및 UART 입력으로 LED 토글](https://youtu.be/Bg9hrV3UmNI?si=QyxuOjNht088D7Jv)
@@ -31,11 +31,11 @@ direction TB
 
 class Input 
 class Output 
-class DigitalAlarmClock 
+class App 
 
-DigitalAlarmClock *-- "3" Input
-DigitalAlarmClock *-- "6" Output
-DigitalAlarmClock o-- "3" Output
+App *-- "3" Input
+App *-- "6" Output
+App o-- "3" Output
 ```
 
 ## [1-3. 버튼 누른 시간 카운트](https://youtu.be/ARtBX-rpjCA?si=GdJaIIyo2OaC4g94)
@@ -48,12 +48,12 @@ class Input
 class Output 
 class Segment 
 class Timer
-class DigitalAlarmClock
+class App
 
-DigitalAlarmClock *-- Input
-DigitalAlarmClock *-- "2" Output
-DigitalAlarmClock *-- Timer
-DigitalAlarmClock *-- Segment
+App *-- Input
+App *-- "2" Output
+App *-- Timer
+App *-- Segment
 
 ```
 
