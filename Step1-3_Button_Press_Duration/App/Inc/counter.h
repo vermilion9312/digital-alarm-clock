@@ -12,15 +12,18 @@
 
 typedef struct {
 	uint32_t count;
+	bool running;
 } Counter;
 
 static inline void Counter_Init(Counter* this)
 {
 	this->count = 0;
+	this->running = false;
 }
 
 static inline void Counter_IncreaseCount(Counter* this)
 {
+	if (!this->running) return;
 	this->count++;
 }
 
@@ -32,6 +35,11 @@ static inline void Counter_ResetCount(Counter* this)
 static inline uint32_t Counter_GetCount(Counter* this)
 {
 	return this->count;
+}
+
+static inline void Counter_SetRunning(Counter* this, bool running)
+{
+	this->running = running;
 }
 
 #endif /* INC_COUNTER_H_ */

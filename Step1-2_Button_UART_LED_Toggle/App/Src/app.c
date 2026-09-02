@@ -27,7 +27,7 @@ static Output* ledRed;
 static Output* ledGreen;
 static Output* ledBlue;
 
-static void App_SwitchLedDirection(void)
+static void App_SwitchLedSide(void)
 {
 	if (ledRed == &leftRed)
 	{
@@ -70,7 +70,7 @@ void App_Loop(void)
 	Input_Update(&button_3);
 	Input_Update(&button_4);
 
-	if (Input_IsRisingEdge(&button_4)) App_SwitchLedDirection();
+	if (Input_IsRisingEdge(&button_4)) App_SwitchLedSide();
 
 	if (Input_IsRisingEdge(&button_1)) Output_Toggle(ledRed);
 	if (Input_IsRisingEdge(&button_2)) Output_Toggle(ledGreen);

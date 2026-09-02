@@ -8,17 +8,13 @@
 
 #include <segment.h>
 
-void Segment_Init(Segment* this, Counter* counter)
+void Segment_Init(void)
 {
-	this->counter = counter;
-
 	_7SEG_GPIO_Init();
 }
 
-void Segment_Update(Segment* this, bool stopped)
+void Segment_Update(uint32_t count, bool stopped)
 {
-	uint32_t count = Counter_GetCount(this->counter);
-
 	int seconds = (int)((count / 1000) % 10);
 	int  _100ms = (int)((count /  100) % 10);
 

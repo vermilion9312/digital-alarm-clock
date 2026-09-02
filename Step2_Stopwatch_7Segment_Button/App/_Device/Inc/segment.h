@@ -8,16 +8,9 @@
 #ifndef INC_SEGMENT_H_
 #define INC_SEGMENT_H_
 
-#include <counter.h>
 #include <7SEG.h>
 
-typedef struct {
-	Counter* counter;
-} Segment;
-
-void Segment_Init(Segment*, Counter*);
-void Segment_Update(Segment*);
-void Segment_SetRunning(Segment*, bool);
-void Segment_ResetCount(Segment*);
+void Segment_Init(void);
+void Segment_Update(uint32_t, bool);
 
 #endif /* INC_SEGMENT_H_ */

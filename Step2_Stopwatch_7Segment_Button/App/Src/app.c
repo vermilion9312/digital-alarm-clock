@@ -13,7 +13,7 @@
 typedef enum {
 	APP_CLOCK_MODE,
 	APP_ALARM_MODE,
-	APP_STOPWATHCH_MODE,
+	APP_STOPWATCH_MODE,
 	APP_TIMER_MODE
 } AppMode;
 
@@ -30,7 +30,6 @@ static Output leftBlue;
 static Output rightRed;
 
 static Counter counter;
-static Segment segment;
 
 static StopwatchMode stopwatchMode;
 
@@ -51,9 +50,9 @@ void App_Init(void)
 	Output_Init(&rightRed,  RIGHT_RED_GPIO_Port,  RIGHT_RED_Pin,  OUTPUT_ACTIVE_LOW);
 
 	Counter_Init(&counter);
-	Segment_Init(&segment, &counter);
+	Segment_Init();
 
-	StopwatchMode_Init(&stopwatchMode, &button_2, &button_3, &segment);
+	StopwatchMode_Init(&stopwatchMode, &button_2, &button_3, &counter);
 
 	mode = APP_STOPWATHCH_MODE;
 }
@@ -78,7 +77,7 @@ void App_Loop(void)
 	case APP_ALARM_MODE:
 		break;
 
-	case APP_STOPWATHCH_MODE:
+	case APP_STOPWATCH_MODE:
 		StopwatchMode_Update(&stopwatchMode);
 		break;
 

@@ -20,7 +20,6 @@ static Output leftRed;
 static Output rightRed;
 
 static Counter counter;
-static Segment segment;
 
 void App_Init(void)
 {
@@ -32,7 +31,7 @@ void App_Init(void)
 	Output_Init(&rightRed, RIGHT_RED_GPIO_Port, RIGHT_RED_Pin, OUTPUT_ACTIVE_LOW);
 
 	Counter_Init(&counter);
-	Segment_Init(&segment, &counter);
+	Segment_Init();
 }
 
 void App_Loop(void)
@@ -47,13 +46,14 @@ void App_Loop(void)
 
 	if (Input_IsFallingEdge(&button)) Output_Toggle(&rightRed);
 
-	Segment_Update(&segment, !Input_IsOn(&button));
+	Counter_SetRunning(&counter, Input_IsOn(&button));
+	Segment_Update(Counter_GetCount(&counter), !Input_IsOn(&button));
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim->Instance != TIM6) return;
 
-	if (Input_IsOn(&button)) Counter_IncreaseCount(&counter);
+	Counter_IncreaseCount(&counter);
 }
 

@@ -10,6 +10,7 @@
 
 #include <input.h>
 #include <segment.h>
+#include <counter.h>
 
 typedef enum {
 	STOPWATCH_STOPPED,
@@ -21,12 +22,12 @@ typedef struct {
 	Input* stateButton;
 	Input* resetButton;
 
-	Segment* segment;
+	Counter* counter;
 
 	StopwatchState state;
 } StopwatchMode;
 
-void StopwatchMode_Init(StopwatchMode*, Input*, Input*, Segment*);
+void StopwatchMode_Init(StopwatchMode*, Input*, Input*, Counter*);
 void StopwatchMode_Update(StopwatchMode*);
 
 #endif /* MODE_INC_STOPWATCH_MODE_H_ */
